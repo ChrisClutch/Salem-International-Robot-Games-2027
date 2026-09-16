@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T1000 Invitational — Salem Oregon Robot Olympics</title>
+  <meta name="description" content="T1000 Invitational — first annual Salem Oregon Robot Olympics. Anchored by Agility Robotics and RoboFab, the world’s first humanoid factory." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root{--navy:#06101c;--navy2:#0a1828;--navy3:#102236;--steel:#c9d4e0;--chrome:#e8eef4;--blue:#4aa3ff;--blue2:#7ec2ff;--ice:#b7d7ff;--gold:#d4b46a;--muted:#8ea0b5;--line:rgba(180,210,255,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Barlow,system-ui,sans-serif;background:var(--navy);color:var(--chrome);line-height:1.5}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .wrap{width:min(1160px,calc(100% - 36px));margin-inline:auto}
+    nav{position:sticky;top:0;z-index:50;background:rgba(6,16,28,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav-in{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:800;letter-spacing:.08em;font-size:22px}
+    .brand em{font-style:normal;color:var(--blue2);font-weight:700;letter-spacing:.18em;font-size:13px;display:block}
+    .mark{width:38px;height:38px;border-radius:50%;border:2px solid var(--blue);box-shadow:0 0 16px rgba(74,163,255,.45),inset 0 0 10px rgba(74,163,255,.25);display:grid;place-items:center;background:radial-gradient(circle at 40% 35%,#4aa3ff,#06203a 70%)}
+    .mark i{width:8px;height:8px;background:#fff;border-radius:50%;box-shadow:0 0 10px #fff}
+    .links{display:flex;gap:22px;font-size:14px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+    .links a{text-decoration:none}
+    .links a:hover{color:var(--chrome)}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#7ec2ff,#2b7adf);color:#041018;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px;border-radius:4px;text-decoration:none;font-size:13px;border:0;cursor:pointer;font-family:"Barlow Condensed",sans-serif;box-shadow:0 8px 24px rgba(43,122,223,.35)}
+    .btn:hover{filter:brightness(1.08)}
+    .btn-ghost{display:inline-flex;align-items:center;border:1px solid rgba(126,194,255,.4);color:var(--ice);padding:11px 18px;border-radius:4px;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+    .hero{position:relative;min-height:92vh;overflow:hidden;display:grid;align-items:end}
+    .hero-art{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,16,28,.35) 0%,rgba(6,16,28,.55) 45%,rgba(6,16,28,.92) 100%),url("img/poster.jpg") center 18%/cover no-repeat}
+    .hero-art:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,transparent 20%,rgba(6,16,28,.55) 80%)}
+    .hero-in{position:relative;z-index:2;padding:120px 0 56px;text-align:center}
+    .eyebrow{font-family:"Barlow Condensed",sans-serif;letter-spacing:.28em;text-transform:uppercase;font-size:13px;color:var(--ice);font-weight:700;margin-bottom:14px}
+    h1{font-family:"Barlow Condensed",sans-serif;font-weight:900;font-size:clamp(64px,14vw,148px);line-height:.82;letter-spacing:.02em;background:linear-gradient(180deg,#fff 10%,#9ec4e8 55%,#6aa0d4 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 10px 24px rgba(0,0,0,.45))}
+    h1 span{display:block;font-size:.38em;letter-spacing:.18em;font-weight:800;background:linear-gradient(180deg,#d7e7f7,#7eb0de);-webkit-background-clip:text;background-clip:text;margin-top:6px}
+    .tag{margin:18px auto 0;max-width:36ch;font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ice);font-size:16px}
+    .hero-sub{margin:16px auto 0;max-width:48ch;color:#c5d3e2;font-size:18px}
+    .meta{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 28px;margin-top:26px;font-family:"Barlow Condensed",sans-serif;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+    .cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .ribbon{background:linear-gradient(90deg,#071422,#0d2744 40%,#071422);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+    .ribbon-track{display:inline-flex;gap:42px;padding:12px 0;white-space:nowrap;animation:slide 38s linear infinite;font-family:"Barlow Condensed",sans-serif;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted);font-size:13px}
+    .ribbon-track b{color:var(--blue2)}
+    @keyframes slide{to{transform:translateX(-50%)}}
+    section{padding:88px 0}
+    .kicker{font-family:"Barlow Condensed",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--blue2);font-weight:700;font-size:13px;margin-bottom:10px}
+    h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(32px,5vw,54px);line-height:.95;letter-spacing:.02em}
+    .lede{margin-top:14px;color:var(--muted);font-size:18px;max-width:64ch}
+    .split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+    .poster-frame{border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+    .events{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+    .ev{background:linear-gradient(180deg,#102338,#0b1a2c);border:1px solid var(--line);border-radius:10px;padding:22px 20px 20px;min-height:200px}
+    .ev .ico{width:42px;height:42px;border:1px solid rgba(74,163,255,.35);border-radius:8px;display:grid;place-items:center;margin-bottom:14px;color:var(--blue2);font-size:18px}
+    .ev h3{font-family:"Barlow Condensed",sans-serif;font-size:24px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+    .ev p{color:var(--muted);font-size:15px}
+    .band{background:var(--navy2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+    .card{background:var(--navy3);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+    .card img{height:220px;width:100%;object-fit:cover}
+    .card .body{padding:20px}
+    .card h3{font-family:"Barlow Condensed",sans-serif;font-size:26px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+    .card p{color:var(--muted)}
+    .agility{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center;background:linear-gradient(90deg,#0c2238,#102a40);border:1px solid rgba(74,163,255,.28);border-radius:12px;padding:24px;margin-top:28px}
+    .agility img{height:220px;width:100%;object-fit:contain}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .chip{border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:13px;color:var(--ice)}
+    .sched{margin-top:28px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+    .row{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:16px 20px;border-bottom:1px solid var(--line)}
+    .row:last-child{border-bottom:0}
+    .row:nth-child(even){background:rgba(255,255,255,.02)}
+    .row b{font-family:"Barlow Condensed",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--blue2)}
+    .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:28px}
+    .three article{background:var(--navy2);border:1px solid var(--line);border-radius:10px;padding:22px}
+    .three h3{font-family:"Barlow Condensed",sans-serif;font-size:24px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+    .three p{color:var(--muted);margin-bottom:16px}
+    form{display:grid;gap:10px;margin-top:22px;max-width:620px}
+    label{font-size:13px;color:var(--muted)}
+    input,select,textarea{width:100%;background:var(--navy2);border:1px solid var(--line);color:var(--chrome);border-radius:6px;padding:12px;font:inherit}
+    textarea{min-height:110px}
+    footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+    .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .note{margin-top:16px;font-size:12.5px;max-width:90ch;color:#6d7d90}
+        .classes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+    .cl{background:linear-gradient(180deg,#102338,#0b1a2c);border:1px solid var(--line);border-radius:10px;padding:22px 20px;min-height:240px;display:flex;flex-direction:column}
+    .cl .n{font-family:"Barlow Condensed",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;font-size:12px;margin-bottom:8px}
+    .cl h3{font-family:"Barlow Condensed",sans-serif;font-size:26px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px;line-height:1}
+    .cl p{color:var(--muted);font-size:15px;margin-top:auto}
+    .locs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+    .loc{background:var(--navy3);border:1px solid var(--line);border-radius:10px;padding:20px}
+    .loc small{display:block;font-family:"Barlow Condensed",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:6px;font-size:12px}
+    .loc h3{font-family:"Barlow Condensed",sans-serif;font-size:22px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+    .loc p{color:var(--muted);font-size:15px}
+    @media(max-width:900px){.links{display:none}.split,.vs,.events,.three,.agility,.locs,.classes{grid-template-columns:1fr}h1{font-size:72px}.hero{min-height:80vh}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-in">
+      <a class="brand" href="#top"><span class="mark"><i></i></span><span>T1000 <em>Invitational</em></span></a>
+      <div class="links">
+        <a href="#about">The Games</a>
+        <a href="#field">The Field</a>
+        <a href="#events">Events</a>
+        <a href="#agility">The Anchor</a>
+        <a href="#weekend">Weekend</a>
+        <a href="#enter">Enter</a>
+      </div>
+      <a class="btn" href="#enter">Register interest</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-art"></div>
+    <div class="wrap hero-in">
+      <div class="eyebrow">Salem, Oregon · Anchored by Agility Robotics</div>
+      <h1>T1000<span>Invitational</span></h1>
+      <div class="tag">Salem Oregon Robot Olympics</div>
+      <p class="hero-sub">First annual Robot Olympics in the hometown of Digit. Combat cages downtown. Humanoids from RoboFab on Truax. Four classes on one floor: invited Chinese teams, high school, college, and open. Anchored by Agility.</p>
+      <div class="meta">
+        <span>June 12–13, 2027</span>
+        <span>Salem Convention Center</span>
+        <span>Anchored by Agility · RoboFab</span>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#enter">Enter a team</a>
+        <a class="btn-ghost" href="#events">Sprint · Marathon · Boxing</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span><b>Robots. Rivals. Glory.</b> One champion.</span>
+      <span>100m Sprint · Marathon · Boxing · Football · Obstacle · Work Floor · Freestyle · Hands</span>
+      <span><b>Anchored by Agility Robotics</b> · RoboFab · Salem</span>
+      <span>Beijing ran 2,056 robots. Salem manufactures them.</span>
+      <span>China invite · High school · College · Open class</span>
+      <span>T1000INVITATIONAL.COM</span>
+      <span><b>Robots. Rivals. Glory.</b> One champion.</span>
+      <span>100m Sprint · Marathon · Boxing · Football · Obstacle · Work Floor · Freestyle · Hands</span>
+      <span><b>Anchored by Agility Robotics</b> · RoboFab · Salem</span>
+      <span>Beijing ran 2,056 robots. Salem manufactures them.</span>
+      <span>China invite · High school · College · Open class</span>
+      <span>T1000INVITATIONAL.COM</span>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap split">
+      <div>
+        <div class="kicker">Salem, Oregon</div>
+        <h2>Agility is the anchor. The Convention Center is the arena. This is the hometown games.</h2>
+        <p class="lede">We are not importing a robotics weekend into a random hall. The T1000 Invitational sits in Salem because Agility sits in Salem. Digit is assembled at RoboFab on Truax Drive — the first full-scale humanoid factory in the world — about ten minutes from the Salem Convention Center at 200 Commercial Street SE.</p>
+        <p class="lede">China just ran 2,056 robots through a Beijing oval. That was industrial policy with an audience. Our version is a public Olympics in the city that already builds the machines — and we invite the teams that just ran Beijing to come score on an American floor.</p>
+        <p class="lede">Four classes: invited Chinese teams, high school, college, and open. Same arenas. Separate podiums. Spectators welcome.</p>
+      </div>
+      <div class="poster-frame"><img src="img/poster.jpg" alt="T1000 Invitational official poster — Salem Oregon Robot Olympics" /></div>
+    </div>
+  </section>
+
+
+  <section id="field">
+    <div class="wrap">
+      <div class="kicker">The field</div>
+      <h2>Four classes. One Robot Olympics.</h2>
+      <p class="lede">China’s games were almost a closed medal table — 641 of 666 teams were domestic. Salem invites that field here, then puts it next to Oregon high schools, college labs, and anyone who can build a machine that makes the rulebook. Events are shared. Scoring and podiums are by class.</p>
+      <div class="classes">
+        <article class="cl">
+          <div class="n">Class I · Invite</div>
+          <h3>China / International</h3>
+          <p>Formal invitations to teams off the World Humanoid Robot Games and World Robot Conference lists — Unitree, X-Humanoid / TianGong, AgiBot, university alliances, and other platforms that want a public U.S. score. Same course. No exhibition pass. They come to compete.</p>
+        </article>
+        <article class="cl">
+          <div class="n">Class II · Schools</div>
+          <h3>High School</h3>
+          <p>Oregon FIRST, VEX, and independent high-school teams, plus visiting prep programs. Kit bots and custom frames. The pipeline class — pits next to Digit so a sophomore from North Salem can see the factory job, not just a trophy.</p>
+        </article>
+        <article class="cl">
+          <div class="n">Class III · Labs</div>
+          <h3>College</h3>
+          <p>OSU Dynamic Robotics Lab as the spiritual home. Open to UO, PSU, OIT, UW, Stanford, CMU, and any accredited lab that can trailer a platform. Research stacks welcome. Still has to finish the course.</p>
+        </article>
+        <article class="cl">
+          <div class="n">Class IV · Anyone</div>
+          <h3>Open Class</h3>
+          <p>Independent builders, garage teams, industry prototypes that are not the invited Chinese field, veterans of combat circuits. No age cap. If it inspects and it moves, it runs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="band">
+    <div class="wrap">
+      <div class="kicker">The program · in the spirit of Beijing</div>
+      <h2>Sprint. Marathon. Boxing. Then the work.</h2>
+      <p class="lede">Beijing ran 51 events across sport and jobs. Year one in Salem is the same idea, cut to a card a convention center and a river loop can actually hold. Sport events copy the Chinese Olympics. The work floor is why Agility is the anchor — tote, aisle, yield to a person.</p>
+      <div class="events">
+        <article class="ev"><div class="ico">01</div><h3>100m Sprint</h3><p>Autonomous bipedal dash. The Beijing headline event — TianGong Ultra ran 8.64s there. Same clock, American floor. Falls count. Remote control does not.</p></article>
+        <article class="ev"><div class="ico">02</div><h3>Marathon</h3><p>Willamette riverfront loop, half-marathon distance for humanoids and a shorter open/high-school loop. Beijing already ran a robot half. Salem puts it on a real street, not an oval.</p></article>
+        <article class="ev"><div class="ico">03</div><h3>Boxing</h3><p>Freestyle fighting and kickboxing weight classes, as in the Ice Ribbon. High school and college run a padded / low-force division. Open and invite run the full contact ruleset after inspection.</p></article>
+        <article class="ev"><div class="ico">04</div><h3>Football</h3><p>5v5 humanoid soccer — Beijing’s loudest crowd event. College and invite on the big pitch. High school 3v3. Autonomy required for the invite class.</p></article>
+        <article class="ev"><div class="ico">05</div><h3>Obstacle / Hurdles</h3><p>Stairs, gaps, dock plate, 400-style barriers. The event that still allows a human in the loop in Beijing — and the one a garage bot can still win.</p></article>
+        <article class="ev"><div class="ico">06</div><h3>Work Floor</h3><p>Agility’s event. Pick, carry, place. Share an aisle with a walking person. Industrial and emergency scenarios. This is Digit’s actual job, scored in public.</p></article>
+        <article class="ev"><div class="ico">07</div><h3>Freestyle / Dance</h3><p>Beijing’s dancesport, wushu, and gymnastics lane. Choreography, balance, crowd work. The original T1000 performance class stays on the card.</p></article>
+        <article class="ev"><div class="ico">08</div><h3>Hands</h3><p>Dexterity bench — the event China added because sprinting is no longer the hard problem. Fastener, sort, grip swap. College and invite scored hardest.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="agility">
+    <div class="wrap">
+      <div class="kicker">Industry anchor · Agility Robotics</div>
+      <h2>The games are built around the company that already lives here.</h2>
+      <p class="lede">Agility is the anchor tenant of this event the way RoboFab is the anchor factory of this industry in Oregon. Spun out of OSU’s Dynamic Robotics Lab in 2015. Headquartered in Salem. Digit 5 unveiled September 15, 2026 — 50-pound lift, 7.2-foot reach, 20-hour workday, built to share a floor with people. More than 65,000 hours already worked at GXO, Schaeffler, Amazon, and Toyota Motor Manufacturing Canada. Peak RoboFab capacity: 10,000 humanoids a year.</p>
+      <p class="lede">Anchor role in year one: name on the humanoid class, Digit on the exhibition floor, safety brief co-authored with their engineers, high-school and college pits that walk students toward that shop instead of toward Fremont, and a standing invite to the Chinese field that just filled Beijing.</p>
+      <div class="agility">
+        <img src="img/digit5.jpg" alt="Agility Digit 5" />
+        <div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:32px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px;">Agility · Digit · RoboFab</h3>
+          <p style="color:var(--muted)">4698 Truax Drive SE, Salem. Ten minutes from the Convention Center. The humanoid class is not a guest demo dropped onto a combat weekend. It is the Salem reason the T1000 exists as a Robot Olympics instead of another school tournament.</p>
+          <div class="chips">
+            <span class="chip">Industry anchor</span>
+            <span class="chip">RoboFab · Truax Drive</span>
+            <span class="chip">Digit 5 on the floor</span>
+            <span class="chip">OSU lab heritage</span>
+            <span class="chip">Youth pipeline</span>
+          </div>
+        </div>
+      </div>
+      <div class="vs">
+        <article class="card">
+          <img src="img/beijing-field.jpg" alt="Beijing World Humanoid Robot Games" />
+          <div class="body"><h3>What China just did</h3><p>August 2026, Beijing. 666 teams. 2,056 robots. 51 events. A 100-meter in 8.64 seconds. Almost every medal stayed home. It was industrial policy with a sold-out oval.</p></div>
+        </article>
+        <article class="card">
+          <img src="img/digit-work.jpg" alt="Digit working totes at RoboFab in Salem" />
+          <div class="body"><h3>What Salem can do</h3><p>A two-day public Olympics downtown, anchored by Agility, with RoboFab ten minutes south. Combat, classrooms, and a humanoid that already works for a living. Keep the talent — and the next software building — in Salem.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="weekend" class="band">
+    <div class="wrap">
+      <div class="kicker">The weekend</div>
+      <h2>June 12–13, 2027 · Salem Convention Center</h2>
+      <p class="lede">Downtown Salem Convention Center as the public arena. RoboFab on Truax as the industrial backstage. Agility as the named anchor. Mid-June so schools are out. Dates move if the venue or Agility lock a different weekend. The geography does not.</p>
+      
+      <div class="locs">
+        <div class="loc">
+          <small>Public arena</small>
+          <h3>Salem Convention Center</h3>
+          <p>200 Commercial Street SE. Sprint straight, boxing ring, 5v5 pitch, obstacle, work floor, freestyle stage. Marathon starts on the river and finishes at the hall.</p>
+        </div>
+        <div class="loc">
+          <small>Industry anchor</small>
+          <h3>Agility · RoboFab</h3>
+          <p>4698 Truax Drive SE, southeast Salem. World’s first full-scale humanoid factory. Digit assembly, humanoid class backstage, factory-to-arena pipeline for year one.</p>
+        </div>
+      </div>
+
+      <div class="sched">
+        <div class="row"><b>Fri June 11</b><div>Load-in, inspection, practice · boxing weigh-in · marathon course walk</div></div>
+        <div class="row"><b>Sat June 12</b><div>Opening · 100m heats · football group · obstacle · work-floor prelims · boxing prelims · public night</div></div>
+        <div class="row"><b>Sun June 13</b><div>Marathon (Willamette loop) · 100m final · boxing final · football final · work-floor + hands · freestyle · class champions</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="enter">
+    <div class="wrap">
+      <div class="kicker">Get on the floor</div>
+      <h2>Teams, Agility, sponsors, the city.</h2>
+      <p class="lede">Working site for the inaugural games in Salem, anchored by Agility. Use it to brief the company, the Convention Center, the city, and visiting teams.</p>
+      <div class="three">
+        <article><h3>Enter a class</h3><p>High school, college, or open. Combat through freestyle, or the Agility humanoid course. Kit bots and custom frames both belong.</p><a class="btn" href="#form">Team interest</a></article>
+        <article><h3>Partner / sponsor</h3><p>Title, arena, youth pits, livestream. Sit next to the Agility anchor on a national story shot in Digit’s hometown.</p><a class="btn-ghost" href="#form">Request a deck</a></article>
+        <article><h3>Send an invite</h3><p>Chinese WHRG and WRC teams, university alliances, high-school programs, open builders. The host table issues the letters. Agility anchors the floor they walk onto.</p><a class="btn-ghost" href="#form">Invite list</a></article>
+      </div>
+      <form id="form" action="mailto:chris@nwrusa.com" method="post" enctype="text/plain">
+        <label>Name <input name="name" required placeholder="Your name" /></label>
+        <label>Organization <input name="org" placeholder="Team, company, school, city" /></label>
+        <label>I am
+          <select name="role">
+            <option>High school team</option>
+            <option>College / university team</option>
+            <option>Open class team</option>
+            <option>China / international invite</option>
+            <option>Agility or industry</option>
+            <option>Sponsor</option>
+            <option>Civic / venue</option>
+            <option>Press</option>
+          </select>
+        </label>
+        <label>Email <input type="email" name="email" required placeholder="you@team.com" /></label>
+        <label>Event class + note <textarea name="note" placeholder="Class + events (sprint, marathon, boxing, football…)"></textarea></label>
+        <button class="btn" type="submit">Send to T1000</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="mark"><i></i></span> T1000 Invitational</div>
+        <div>Salem, Oregon · Anchored by Agility Robotics · First Annual · June 12–13, 2027</div>
+        <div>Salem Convention Center · 200 Commercial St. SE</div>
+      </div>
+      <div>t1000invitational.com<br />Working contact · chris@nwrusa.com</div>
+    </div>
+    <div class="wrap note">Working draft for partner briefings. T1000 Invitational branding from the official event poster. Agility, Digit, and RoboFab marks belong to Agility. Agility is named as the industry anchor of a Salem-hosted games. Final marks, demo rights, and floor plan are subject to Agility, the City of Salem, and the Salem Convention Center. Beijing figures from the 2026 World Humanoid Robot Games. Digit 5 specifications from Agility’s September 15, 2026 announcement.</div>
+  </footer>
+</body>
+</html>
